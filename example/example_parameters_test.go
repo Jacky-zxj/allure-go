@@ -2,10 +2,11 @@ package example
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 
-	"github.com/dailymotion/allure-go"
-	"github.com/dailymotion/allure-go/severity"
+	"github.com/Goldenteamway/allure-go"
+	"github.com/Goldenteamway/allure-go/severity"
 )
 
 type SampleObject struct {
@@ -99,10 +100,17 @@ func TestAllureWithLabels(t *testing.T) {
 }
 
 func TestAllureNamedTest(t *testing.T) {
-	allure.Test(t,
-		allure.Description("Description of a test"),
-		allure.Name("Test naming of a test"),
-		allure.Action(func() {
-			allure.Step()
-		}))
+	t.Run("", func(t *testing.T) {
+		allure.Test(t,
+			allure.Description("Description of a test"),
+			allure.Name("Test naming of a test"),
+			allure.Action(func() {
+				defer func() {
+					fmt.Println(111)
+				}()
+				allure.Step(allure.Action(func() {
+					assert.Equal(t, "onw", "two")
+				}))
+			}))
+	})
 }

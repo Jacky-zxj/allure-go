@@ -4,11 +4,12 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"log"
+	"reflect"
 	"runtime/debug"
 	"strings"
 	"testing"
 
-	"github.com/dailymotion/allure-go/severity"
+	"github.com/Goldenteamway/allure-go/severity"
 	"github.com/fatih/camelcase"
 	"github.com/jtolds/gls"
 )
@@ -77,7 +78,7 @@ func Test(t *testing.T, testOptions ...Option) {
 	r = newResult()
 	r.UUID = generateUUID()
 	r.Start = getTimestampMs()
-	r.Name = strings.Join(camelcase.Split(t.Name())[1:], " ")
+	r.Name = strings.Join(camelcase.Split(t.Name())[1:], "")
 	r.Description = t.Name()
 	r.setDefaultLabels(t)
 	r.Steps = make([]stepObject, 0)
@@ -106,6 +107,10 @@ func Test(t *testing.T, testOptions ...Option) {
 			}
 			if !isFailed {
 				r.Status = broken
+			}
+			v := reflect.ValueOf(panicObject)
+			if strings.Contains(v.String(), "Error Trace") {
+				r.Status = failed
 			}
 		}
 		if r.Status == "" {
