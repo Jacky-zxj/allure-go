@@ -109,10 +109,7 @@ func Test(t *testing.T, testOptions ...Option) {
 				r.Status = broken
 			}
 			v := reflect.ValueOf(panicObject)
-			fmt.Println("111111")
-			fmt.Println(v.String())
-			fmt.Println("111111")
-			if strings.Contains(v.String(), "Error Trace") {
+			if strings.Contains(v.String(), "errors.errorString") {
 				r.Status = failed
 			}
 		}
