@@ -53,7 +53,7 @@ func parseParameter(name string, value interface{}) parameter {
 	case string:
 		result.Value = value.(string)
 	default:
-		result.Value = fmt.Sprintf("%+value", value)
+		result.Value = fmt.Sprintf("%+v", value)
 	}
 
 	return result
