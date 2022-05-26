@@ -136,10 +136,12 @@ func (r *result) setDefaultLabels(t *testing.T) {
 }
 
 func (r *result) addLabel(name string, value string) {
-	r.Labels = append(r.Labels, label{
-		Name:  name,
-		Value: value,
-	})
+	if value != "" {
+		r.Labels = append(r.Labels, label{
+			Name:  name,
+			Value: value,
+		})
+	}
 }
 
 func (r *result) writeResultsFile() error {
