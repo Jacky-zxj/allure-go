@@ -35,7 +35,6 @@ func BeforeTest(t *testing.T, testOptions ...Option) {
 		beforeSubContainer.Stage = "finished"
 
 		if panicObject != nil {
-			t.Fail()
 			beforeSubContainer.StatusDetails = &statusDetails{
 				Message: fmt.Sprintf("%+v", panicObject),
 				Trace:   filterStackTrace(debug.Stack()),
@@ -62,7 +61,7 @@ func BeforeTest(t *testing.T, testOptions ...Option) {
 					log.Println("Failed to write content of result to json file", err)
 				}
 			}
-			panic(panicObject)
+			t.FailNow()
 		}
 	}()
 	ctxMgr.SetValues(gls.Values{
