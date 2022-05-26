@@ -2,11 +2,9 @@ package allure
 
 import (
 	"fmt"
-	"github.com/fatih/camelcase"
 	"github.com/jtolds/gls"
 	"log"
 	"runtime/debug"
-	"strings"
 	"testing"
 )
 
@@ -43,8 +41,8 @@ func BeforeTest(t *testing.T, testOptions ...Option) {
 
 			r := newResult()
 			r.Stop = getTimestampMs()
-			r.Name = strings.Join(camelcase.Split(t.Name())[1:], " ")
-			r.Description = t.Name()
+			r.Name = t.Name()
+			//r.Description = t.Name()
 			r.setDefaultLabels(t)
 			r.Status = failed
 
