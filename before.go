@@ -62,7 +62,7 @@ func BeforeTest(t *testing.T, testOptions ...Option) {
 					log.Println("Failed to write content of result to json file", err)
 				}
 			}
-			panic(panicObject)
+			//panic(panicObject)
 		}
 	}()
 	ctxMgr.SetValues(gls.Values{
