@@ -47,7 +47,7 @@ func BeforeTest(t *testing.T, testOptions ...Option) {
 			r.Name = strings.Join(camelcase.Split(t.Name())[1:], " ")
 			r.Description = t.Name()
 			r.setDefaultLabels(t)
-			r.Status = skipped
+			r.Status = failed
 
 			err := r.writeResultsFile()
 			if err != nil {
