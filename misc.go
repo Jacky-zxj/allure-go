@@ -71,7 +71,7 @@ func createFolderIfNotExists() {
 	resultsPath = fmt.Sprintf("%s/allure-results", resultsPathEnv)
 
 	if _, err := os.Stat(resultsPath); os.IsNotExist(err) {
-		err = os.Mkdir(resultsPath, 0777)
+		err = os.MkdirAll(resultsPath, 0777)
 		if err != nil {
 			log.Println(err, "Failed to create allure-results folder")
 		}
