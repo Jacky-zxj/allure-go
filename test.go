@@ -109,7 +109,7 @@ func Test(t *testing.T, testOptions ...Option) {
 			if !isFailed {
 				r.Status = broken
 			}
-			v := reflect.ValueOf(panicObject)
+			v := reflect.TypeOf(panicObject)
 			fmt.Println("1111")
 			fmt.Println(v)
 			fmt.Println("2222")
