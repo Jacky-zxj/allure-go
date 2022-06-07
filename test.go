@@ -96,7 +96,6 @@ func Test(t *testing.T, testOptions ...Option) {
 
 	defer func() {
 		panicObject := recover()
-		fmt.Println("1111")
 		getCurrentTestPhaseObject(t).Test = r
 		r.Stop = getTimestampMs()
 		if panicObject != nil {
@@ -110,9 +109,6 @@ func Test(t *testing.T, testOptions ...Option) {
 				r.Status = broken
 			}
 			v := reflect.TypeOf(panicObject)
-			fmt.Println("1111")
-			fmt.Println(v)
-			fmt.Println("2222")
 			if strings.Contains(v.String(), "errors.errorString") {
 				r.Status = failed
 			}
