@@ -3,7 +3,7 @@ package example
 import (
 	"testing"
 
-	"github.com/Goldenteamway/allure-go"
+	"github.com/Jacky-zxj/allure-go"
 )
 
 func TestSuiteExample(t *testing.T) {

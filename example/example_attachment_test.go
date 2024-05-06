@@ -1,7 +1,7 @@
 package example
 
 import (
-	"github.com/Goldenteamway/allure-go"
+	"github.com/Jacky-zxj/allure-go"
 	"io/ioutil"
 	"log"
 	"testing"

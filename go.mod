@@ -1,4 +1,4 @@
-module github.com/Goldenteamway/allure-go
+module github.com/Jacky-zxj/allure-go
 
 go 1.15
 

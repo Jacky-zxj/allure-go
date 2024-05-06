@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Goldenteamway/allure-go/severity"
+	"github.com/Jacky-zxj/allure-go/severity"
 	"github.com/fatih/camelcase"
 	"github.com/jtolds/gls"
 )
@@ -72,7 +72,7 @@ func SkipTest(t *testing.T, testOptions ...Option) {
 	}()
 }
 
-//Test execute the test and creates an Allure result used by Allure reports
+// Test execute the test and creates an Allure result used by Allure reports
 func Test(t *testing.T, testOptions ...Option) {
 	var r *result
 	r = newResult()
@@ -155,7 +155,7 @@ func getSha256(labels []label, name string) string {
 
 // This function filters out 'host' and 'thread' labels that are dynamic and cause issues for
 // testCaseId and historyId attributes which should be identical across hosts with dynamic host naming,
-//e.g. in a container in Kubernetes cluster.
+// e.g. in a container in Kubernetes cluster.
 func sanitizeLabels(labels []label) []label {
 	sanitizedLabels := make([]label, 0)
 

@@ -1,7 +1,7 @@
 package allure
 
 import (
-	"github.com/Goldenteamway/allure-go/severity"
+	"github.com/Jacky-zxj/allure-go/severity"
 )
 
 type Option func(r hasOptions)

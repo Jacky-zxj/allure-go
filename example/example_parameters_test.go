@@ -5,8 +5,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"testing"
 
-	"github.com/Goldenteamway/allure-go"
-	"github.com/Goldenteamway/allure-go/severity"
+	"github.com/Jacky-zxj/allure-go"
+	"github.com/Jacky-zxj/allure-go/severity"
 )
 
 type SampleObject struct {
